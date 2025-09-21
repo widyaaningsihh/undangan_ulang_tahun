@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Rinjani Birthday</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Audio -->
+  <audio id="bg-music" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+    Browser tidak mendukung audio.
+  </audio>
+
+  <!-- Tombol kontrol -->
+  <div class="audio-controls">
+    <div class="btn" id="muteBtn"><i class="fas fa-volume-up"></i></div>
+    <div class="btn" id="playBtn"><i class="fas fa-pause"></i></div>
+  </div>
+
+  <!-- SECTION COVER -->
+  <section class="invitation-container">
+    <img src="assets/sofia.png" alt="Cover Sofia" class="cover-img">
+    <div class="content">
+      <p class="sentence">Join Us to Celebrate</p>
+      <h2 class="sentence">Rinjani</h2>
+      <h4 class="sentence">IS TURNING 10</h4>
+      <p class="sentence">With Pleasure</p>
+      <p class="guest-name sentence">Nama Tamu</p>
+    </div>
+
+    <!-- Tombol Open Invitation -->
+    <div class="open-invitation-wrapper">
+      <img src="assets/kupu-kupu.PNG" alt="Cover Sofia" class="kupu-kupu">
+      <button id="open-invitation" class="open-btn">Open Invitation</button>
+    </div>
+  </section>
+
+  <!-- SECTION DETAIL -->
+  <section class="section-detail" id="detail">
+    <div class="card">
+      <img src="assets/bff.png" alt="Sofia">
+      <img src="assets/tupai.png" alt="tupai" class="animal-tupai">
+      <img src="assets/kelinci.png" alt="kelinci" class="animal-kelinci">
+
+      <h1 class="event">Birthday Party</h1>
+
+      <div class="date">
+        <span class="event">Minggu</span>
+        <h2 class="event">05</h2>
+        <span class="event">Oktober 2025</span>
+        <p class="event">Pukul 08.00 WITA</p>
+      </div>
+
+      <div class="location">
+        <h3 class="event">Lokasi Acara</h3>
+        <p class="event">Kelingking Beach</p>
+        <small class="event">Bunga Mekar, Kec. Nusa Penida,<br>Kabupaten Klungkung, Bali</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION RSVP -->
+<section class="rsvp-section" id="rsvp">
+  <div class="rsvp-container">
+    <img src="assets/burmer.png" alt="burmer" class="animal-burmer">
+
+    <!-- 1 -->
+    <h2 class="fade-in">RSVP</h2>
+
+    <!-- 2 -->
+    <div class="countdown">
+      <div class="time-box fade-in"><span id="days">00</span><p>Hari</p></div>
+      <div class="time-box fade-in"><span id="hours">00</span><p>Jam</p></div>
+      <div class="time-box fade-in"><span id="minutes">00</span><p>Menit</p></div>
+      <div class="time-box fade-in"><span id="seconds">00</span><p>Detik</p></div>
+    </div>
+
+    <!-- 3 -->
+    <p class="instruction fade-in">Tekan tombol dibawah ini untuk konfirmasi kehadiran</p>
+
+    <!-- 4 -->
+    <button class="confirm-btn fade-in" id="openModal">CLICK HERE</button>
+  </div>
+</section>
+
+
+  <!-- Modal Form RSVP -->
+  <div id="rsvpModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h2>RSVP</h2>
+      <form id="rsvpForm">
+        <label>Nama</label>
+        <input type="text" id="nama" placeholder="Nama Tamu" required>
+
+        <label>No WhatsApp</label>
+        <div class="wa-input">
+          <select id="kode">
+            <option>+62</option>
+            <option>+60</option>
+            <option>+65</option>
+          </select>
+          <input type="text" id="wa" placeholder="No WhatsApp" required>
+        </div>
+
+        <label>Kehadiran</label>
+        <select id="status" required>
+          <option value="">Kehadiran</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+        </select>
+
+        <label>Komentar atau Ucapan</label>
+        <textarea id="pesan" placeholder="Komentar atau Ucapan"></textarea>
+
+        <button type="submit" class="submit-btn">Kirim</button>
+      </form>
+
+      <!-- List RSVP -->
+      <div class="rsvp-list" id="rsvpList"></div>
+    </div>
+  </div>
+
+  <!-- SECTION Tanda Kasih -->
+  <div id="tanda-kasih" class="tanda-kasih">
+    <img src="assets/burbir.png" alt="burbir" class="animal-burbir">
+
+    <h2 class="fade-in">Tanda Kasih</h2>
+    <p class="fade-in">
+      Terima kasih telah menambah semangat<br>
+      kegembiraan ulang tahun anak kami dengan <br>
+      kehadiran dan hadiah indah Anda.
+    </p>
+
+    <div class="btn-group">
+      <button class="btn-kasih fade-in" onclick="showSectionKasih('cashless')">
+        <i class="fas fa-gift"></i> Cashless
+      </button>
+      <button class="btn-kasih fade-in" onclick="showSectionKasih('kado')">
+        <i class="fas fa-gift"></i> Kirim Kado
+      </button>
+    </div>
+
+    <!-- Cashless -->
+    <div id="cashless" class="kasih-section content-section" style="display:none;">
+      <div class="rekening fade-in">
+        <h3>12345678</h3>
+        <img src="assets/Logo-BCA.png" alt="BCA"><br>
+        <button class="copy-btn fade-in" onclick="copyTextKasih('12345678')">Salin Rekening</button>
+        <p>BCA a.n. Nama Rekening</p>
+      </div>
+    </div>
+
+    <!-- Kado -->
+    <div id="kado" class="kasih-section content-section" style="display:none;">
+      <h3 class="fade-in" style="color:#f7941d;">Kirim Kado</h3>
+      <p class="fade-in">
+        Bunga Mekar, Kec. Nusa Penida,<br>Kabupaten Klungkung, Bali
+      </p>
+      <button class="copy-btn fade-in" onclick="copyTextKasih('Jl. Wildan Sari 1 No 11 Banjarmasin Barat 70119')">
+        Salin Alamat
+      </button>
+    </div>
+  </div>
+
+
+ <!-- SECTION VENUE -->
+<section class="venue-section" id="venue">
+  <div class="venue-card">
+    <h2 class="venue-title fade-down">Maps</h2>
+    <div class="venue-map fade-up">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24029.90269478385!2d115.4526045665757!3d-8.751341726657403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd26e2a9d0779cb%3A0xb390835442eced6e!2sKelingking%20Beach!5e1!3m2!1sid!2sid!4v1758299194889!5m2!1sid!2sid" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="venue-info fade-up">
+      <h1>Kelingking Beach</h1>
+      <p>Bunga Mekar, Kec. Nusa Penida,<br>Kabupaten Klungkung, Bali</p>
+    </div>
+    <div class="venue-button fade-up">
+      <a href="https://maps.app.goo.gl/jYaYcbsRV15bvg5A7" target="_blank">Petunjuk Ke Lokasi</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION GALERI -->
+<section class="galeri-section" id="galeri">
+  <img src="assets/peri-pink.png" alt="peri-pink" class="animal-pink">
+  <img src="assets/peri-hijau.png" alt="peri-hijau" class="animal-hijau">
+
+  <div class="galeri-card">
+    <h2 class="galeri-title fade-up">Gallery</h2>
+    <img src="assets/pin-text.png" alt="pin-text" class="pin-text fade-up">
+    
+    <div class="galeri-grid">
+      <div class="galeri-item fade-up"><img src="assets/gallery1.jpg" alt="Foto 1"></div>
+      <div class="galeri-item fade-up"><img src="assets/gallery2.jpg" alt="Foto 2"></div>
+      <div class="galeri-item fade-up"><img src="assets/gallery4.jpg" alt="Foto 3"></div>
+      <div class="galeri-item fade-up"><img src="assets/gallery3.jpg" alt="Foto 4"></div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- SECTION THANK YOU -->
+  <section class="thankyou-section" id="thankyou">
+    <div class="thankyou-card">
+      <img src="assets/sofia-thanks.png" alt="Flynn Rider & Maximus" class="thankyou-img">
+      <img src="assets/burbir.png" alt="burbir" class="thanks-burbir">
+      <img src="assets/burmer.png" alt="burbir" class="thanks-burmer">
+      <h2>Thank you for<br>Your attention<br>Hope to see you<br>at the event</h2>
+      <img src="assets/tupai.png" alt="tupai" class="animal-tupaii">
+      <img src="assets/kelinci.png" alt="kelinci" class="animal-kelincii">
+    </div>
+  </section>
+
+  <!-- Import Script -->
+  <script src="script.js"></script>
+</body>
+</html>
